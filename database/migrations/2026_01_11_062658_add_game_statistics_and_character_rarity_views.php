@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         // View 1: Game Statistics - summary of characters, elements, and roles per game
-        DB::statement('CREATE VIEW view_games_statistics AS
+        DB::statement('DROP VIEW IF EXISTS view_games_statistics;
+            CREATE VIEW view_games_statistics AS
             SELECT 
                 g.id,
                 g.game_name,
@@ -30,7 +31,8 @@ return new class extends Migration
         ');
 
         // View 2: Characters by Rarity - all characters sorted by rarity with game info
-        DB::statement('CREATE VIEW view_characters_by_rarity AS
+        DB::statement('DROP VIEW IF EXISTS view_characters_by_rarity;
+            CREATE VIEW view_characters_by_rarity AS
             SELECT 
                 c.id,
                 c.name AS character_name,

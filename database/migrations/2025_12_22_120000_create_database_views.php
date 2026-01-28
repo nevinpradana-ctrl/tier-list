@@ -14,7 +14,8 @@ class CreateDatabaseViews extends Migration
     {
         // View: characters with related names and URLs
         DB::statement(<<<'SQL'
-CREATE OR REPLACE VIEW view_characters_full AS
+DROP VIEW IF EXISTS view_characters_full;
+CREATE VIEW view_characters_full AS
 SELECT 
     c.id AS character_id,
     c.name AS character_name,
@@ -34,7 +35,8 @@ SQL
 
         // View: full tierlist entries with game and category
         DB::statement(<<<'SQL'
-CREATE OR REPLACE VIEW view_tierlist_full AS
+DROP VIEW IF EXISTS view_tierlist_full;
+CREATE VIEW view_tierlist_full AS
 SELECT 
     td.id AS tier_data_id,
     g.game_name,
@@ -55,7 +57,8 @@ SQL
 
         // View: elements joined with their game
         DB::statement(<<<'SQL'
-CREATE OR REPLACE VIEW view_elements_per_game AS
+DROP VIEW IF EXISTS view_elements_per_game;
+CREATE VIEW view_elements_per_game AS
 SELECT 
     e.id AS element_id,
     e.element_name,
