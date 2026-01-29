@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('user')->comment('admin, staff_viewer, staff_editor, user');
-        });
+        if (!Schema::hasColumn('users', 'role')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->string('role')->default('user')->comment('admin, staff_viewer, staff_editor, user');
+            });
+        }
     }
 
     /**
@@ -21,8 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
-        });
+        // Don't drop the column if it already existed before this migration
+        // (i.e., it's part of the original users table schema)
     }
 };
