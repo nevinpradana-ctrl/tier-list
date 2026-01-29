@@ -1,0 +1,163 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                     🚀 QUICK DEPLOY GUIDE - 5 MENIT                       ║
+║                                                                            ║
+║          Gacha Tier List Application ke GitHub + Railway Hosting         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+┌─ PREREQUISITES ─────────────────────────────────────────────────────────────┐
+│                                                                             │
+│ ✅ Git installed: git --version                                            │
+│ ✅ GitHub account: https://github.com                                      │
+│ ✅ Railway account: https://railway.app                                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 1: GITHUB PUSH (10 MENIT)
+
+Step 1️⃣: Buat Repository di GitHub
+  → Buka: https://github.com/new
+  → Nama: tier-list
+  → Description: Gacha Tier List Application - Laravel
+  → Public: YES (untuk hosting)
+  → DON'T initialize (repo sudah ada)
+  → Klik: Create Repository
+
+Step 2️⃣: Copy Repository URL
+  → Klik tombol Code (hijau) → HTTPS
+  → Copy URL: https://github.com/username/tier-list.git
+  → (Ganti "username" dengan username GitHub Anda)
+
+Step 3️⃣: Add Remote & Push
+  Buka terminal dan jalankan:
+
+  cd /home/nevin/Coding/tier-list
+  
+  git remote add origin https://github.com/username/tier-list.git
+  
+  git branch -M main
+  
+  git push -u origin main
+
+  ✅ Tunggu sampai selesai (2-5 menit)
+  ✅ Cek di https://github.com/username/tier-list
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 2: RAILWAY HOSTING (15 MENIT)
+
+Step 4️⃣: Setup di Railway
+  → Buka: https://railway.app
+  → Klik: Sign Up with GitHub
+  → Authorize Railway
+  → Agree to terms
+
+Step 5️⃣: Create New Project
+  → Klik: New Project
+  → Select: Deploy from GitHub
+  → Authorize GitHub (jika diminta)
+  → Search: tier-list
+  → Select repository: username/tier-list
+  → Klik: Deploy Now
+
+Step 6️⃣: Tunggu Auto-Deployment
+  Railway akan:
+  ✅ Auto-detect Laravel
+  ✅ Setup environment variables
+  ✅ Create MySQL database
+  ✅ Deploy aplikasi (2-3 menit)
+
+Step 7️⃣: Run Migrations
+  Di Railway Dashboard:
+  → Services → tier-list → Logs tab
+  → Click terminal icon (>_)
+  → Jalankan:
+    
+    php artisan migrate
+    php artisan db:seed (optional)
+
+Step 8️⃣: Get Your URL
+  → Services → tier-list
+  → Copy generated domain
+  → Format: https://tier-list-production-xxxx.railway.app
+  → Coba buka di browser
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TEST APLIKASI
+
+Admin Login:
+  URL: https://your-url.com/admin/login
+  Username: admin
+  Password: admin
+
+Frontend:
+  URL: https://your-url.com
+  Bisa lihat daftar game & tier list
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TROUBLESHOOTING
+
+❌ Error: "Repository not found"
+  → Pastikan repository sudah public
+  → Pastikan URL GitHub benar
+  
+❌ Error: "Composer dependencies"
+  → Railway akan auto-install, tunggu aja
+  
+❌ Error: "Database migration failed"
+  → Jalankan: php artisan migrate --force
+  
+❌ Error: "502 Bad Gateway"
+  → Tunggu 2-3 menit, Railway masih deploy
+  → Cek logs di Railway dashboard
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SETELAH HOSTING
+
+Update Laporan:
+  ✅ Buka: LAPORAN_FINAL_PROJECT_SI118.docx
+  ✅ Halaman 11-12: Paste URL hosting
+  ✅ Halaman 13: Paste GitHub repository URL
+  
+Commit & Push Again:
+  git add .
+  git commit -m "docs: update hosting information"
+  git push
+
+Update Google Drive Backup:
+  ✅ Upload file terbaru ke Google Drive
+  ✅ Update link di laporan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PERINTAH LENGKAP (Copy-Paste)
+
+# Phase 1: Push to GitHub
+cd /home/nevin/Coding/tier-list
+git remote add origin https://github.com/YOUR_USERNAME/tier-list.git
+git branch -M main
+git push -u origin main
+
+# Check status
+git remote -v
+git log --oneline | head -3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UNTUK COMMIT CHANGES DI MASA DEPAN
+
+git add .
+git commit -m "feat: deskripsi perubahan"
+git push origin main
+
+Railway akan auto-deploy perubahan Anda! ✨
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ SELAMAT! Aplikasi Anda sudah online! 🎉
+
+Generated: 21 Januari 2026
